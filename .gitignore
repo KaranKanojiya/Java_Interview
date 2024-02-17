@@ -1,0 +1,50 @@
+# IDE/Build artifacts
+.idea/
+target/
+generated-sources/
+mvnw.cmd
+mvnw.sh
+*.iml
+.classpath
+.project
+idea_modules.xml
+clover/.build/
+
+# Dependencies (Use separate repository for dependencies)
+lib/
+node_modules/
+
+# Local settings
+.settings/
+
+# IDE-specific logs/caches
+.idea/compiler.xml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries
+.idea/shelf
+
+# Maven local repository (Use dedicated storage)
+.m2/repository/
+
+# Logs and temporary files
+logs/
+.DS_Store
+*.swp
+*.log
+*.dump
+*.pid
+
+# Editor backup files
+*~
+*.bak
+
+# Build artifacts/temporary files
+*.class
+*.jar
+*.war
+*.ear
+*.war.original
+*.zip
+*.tar.gz
