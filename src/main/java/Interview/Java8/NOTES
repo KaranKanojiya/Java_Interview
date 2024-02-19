@@ -109,3 +109,24 @@ Example: stream.collect(Collectors.toList()). This collects elements into a list
 
   map : to fetch single element
   flatMap: to fetch list from list or one to many scenario | e.g User having multiple emails
+
+
+📌 mapToObj()
+
+.mapToObj is a method used in Java streams to convert each element of a stream of primitive types (like int, long, or double) to an object.
+ It takes a function as an argument that specifies how each element should be converted.
+
+
+ Example :
+
+ Using chars() method of String: The chars() method of the String class returns an IntStream of Unicode code points.
+ You can then convert this IntStream to a Stream<Character> using .mapToObj as shown in the previous example.
+
+ String str = "Hello";
+ Stream<Character> charStream = str.chars().mapToObj(ch -> (char) ch);
+
+
+ 📌 Stream vs Parallel Stream ?
+
+ Stream uses single core of your machine and paralle stream uses multilple core of your system
+ Write : Stream and Read : Parallel Stream
