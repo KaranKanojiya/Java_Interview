@@ -1,0 +1,75 @@
+📌_________________________ Core Java _________________________📌
+
+1] What is the pillars of oops concept?
+
+⚙ Inheritance :
+Inheritance is the process of one class inheriting properties and methods from another class in Java.
+A mechanism in which one object acquires all the properties and behaviors of a parent object.
+Inheritance is used when we have is-a relationship between objects.
+Inheritance in Java is implemented using "extends" keyword.
+
+
+⚙ Encapsulation:
+
+Binding (or wrapping) code and data together into a single unit are known as encapsulation.
+
+In order to achieve encapsulation in java follow certain steps as proposed below:
+
+Declare the variables as private
+Declare the setters and getters to set and get the variable values
+
+
+⚙ Abstraction:
+Hiding internal details and showing functionality is known as abstraction.
+
+There are two ways to achieve abstraction in Java
+Abstract class (0 to 100%)
+Interface (100%)
+
+Example:
+Consider an ATM Machine; All are performing operations on the ATM machine like cash withdrawal, money transfer,
+retrieve mini-statement…etc. but we can't know the internal details about ATM.
+
+
+Polymorphism
+
+If one task is performed in different ways, it is known as polymorphism.
+For example: to convince the customer differently, to draw something, for example, shape, triangle, rectangle, etc.
+In Java, we use method overloading and method overriding to achieve polymorphism.
+
+Example : Runtime|Dynamic Polymorphism: @Autowired i.e Injecting the service Interface will run the logic based on implementation class method call.
+
+
+
+2] Explain Exception hierarchy in Inheritance
+
+- If child class method throws exception the parent class method need to handle that exception.
+
+3] Parent child override scenario : Interview.CoreJava.oop.Parent
+
+   - You cannot override private and static method
+
+4] What is the difference bewteen Java 7 and Java :
+
+   Java 7: Only Abstract method
+   Java 8: Also default and static method
+
+5] What is final, finally and finalize?
+
+   final : keyword | can't reassign value to variable
+   finally : block : [ try | catch | finally : e.g close db connection ]
+   finalize: method | [ System.gc() ] | garbage colelctor
+
+6] What is hashcode and equals method and its contract?
+
+   HashSet will duplicate employee with same properties if hashcode and equals method not overriden in pojo class
+
+   Example : Interview/CoreJava/HashcodeEqualsContract/Employee.java:26
+
+
+
+
+
+
+
+
