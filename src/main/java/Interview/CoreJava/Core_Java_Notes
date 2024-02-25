@@ -67,6 +67,66 @@ Example : Runtime|Dynamic Polymorphism: @Autowired i.e Injecting the service Int
    Example : Interview/CoreJava/HashcodeEqualsContract/Employee.java:26
 
 
+7] What is Exception and it's hierarchy:
+
+https://www.interviewbit.com/exception-handling-interview-questions/
+
+
+8] How to write custom exception
+Interview/CoreJava/Exception/OrderNotFoundException.java
+
+9] Difference between throw and throws
+
+   throw:
+
+   The throw keyword allows a programmer to throw an exception object to interrupt normal program flow.
+
+   throws:
+
+   The throws keyword in Java is used along with the method signature to specify exceptions that the method could throw during execution.
+
+
+
+10]What is Exception order
+
+   - Inside try-catch block child exception should be caught first before parent class exception in case of multiple catch block
+
+11] is finally block always executed ?
+
+    Ex: Interview/CoreJava/Exception/TryCatchFinallyReturnFlow.java:3
+
+   - In try catch scenario always value will be return from finally block
+
+      case 1 : only return | return value from  finally block
+
+      case 2 : catch block first  if any print message | return from finally block
+
+12] How many way we can create String Object?
+
+13] String object creation scenario
+
+14] What is SCP and how it works
+
+15] Why is String immutable ?
+
+    - Saves space in heap memory area
+    - Security threat : DB password
+    - Safe during multithreading operation
+
+16] Difference between StringBuilder and StringBuffer ?
+
+    - StringBuilder: Not Thread Safe | Performance Faster than StringBuffer
+    - StringBuffer : Thread Safe | Performance Slower than StringBuilder
+
+17] How to write your own custom immutable class ?
+
+    - Make your class final
+    - Declare all instance variable with private and final
+    - No to setter methods
+    - Initialize all varialbles in constructor
+    - perform cloning of mutable objects while returning from getter method
+
+
 
 
 
