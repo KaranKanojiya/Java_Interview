@@ -126,10 +126,74 @@ Interview/CoreJava/Exception/OrderNotFoundException.java
     - Initialize all varialbles in constructor
     - perform cloning of mutable objects while returning from getter method
 
+18] Which one is good to store password in Java String or char[] & why
+    - Use Char Array
+    - Strings are immutable and it will store password as plain text, potentially vulnerable to attacks
+    - When you modify the string, a new object is created in memory
+    - Char arrays allow direct access and manipulation of individual characters, which can be helpful
+      when interacting with security libraries or low-level APIs that work with raw bytes or characters.
+
+19] What is marker interface ( tagging interface )? Can we create our own Market Interface ?
+
+    -A marker interface in Java is an empty interface with no fields or methods. It has three types:
+
+      -Serializable interface
+      -Cloneable interface
+      -Remote interface
+
+20] What all collections you used in your project ?
+
+    List Interface : ArrayList | LinkedList
+
+    Set Interface : HashSet | LinkedHashSet | TreeSet
+
+    Map Interface : HashMap | LinkedHashMap | TreeMap
 
 
 
+📌 List Interface:
+
+    ⚙ ArrayList: Ordered, allows duplicates (Think: Regular list with indexes)
+      - List<Employee> employeeList = new ArrayList<>();
+
+    ⚙ LinkedList: Ordered, allows duplicates (Think: Linked list with nodes, good for frequent insertions/removals)
+      - List<Employee> employeeList = new LinkedList<>();
+
+📌 Set Interface:
+
+    ⚙ HashSet: Unordered, doesn't allow duplicates (Think: Unique items in a bag)
+      - Set<Employee> uniqueEmployees = new HashSet<>();
+
+    ⚙ LinkedHashSet: Ordered, doesn't allow duplicates (Think: Unique items in a linked list)
+      - Set<Employee> uniqueOrderedEmployees = new LinkedHashSet<>();
+
+    ⚙ TreeSet: Ordered, doesn't allow duplicates (Think: Unique items sorted in ascending order)
+      - Set<Employee> sortedEmployees = new TreeSet<>();
 
 
+📌 Map Interface:
 
+    ⚙ HashMap: Unordered, key-value pairs (Think: Dictionary with no specific order for keys)
+      - Map<Integer, Employee> employeeMap = new HashMap<>();
+
+    ⚙ LinkedHashMap: Ordered, key-value pairs (Think: Dictionary preserving insertion order)
+      - Map<Integer, Employee> employeeMapOrdered = new LinkedHashMap<>();
+
+    ⚙ TreeMap: Ordered, key-value pairs (Think: Dictionary with keys sorted in ascending order)
+      - Map<Integer, Employee> employeeMapSorted = new TreeMap<>();
+
+
+21] What is the difference between list and set ?
+
+    -Order:
+
+    List: Maintains order of elements as they were added.
+    Set: Unordered collection, elements may appear in any order.
+
+    -Duplicates:
+
+    List: Allows duplicate elements (can have the same element multiple times).
+    Set: Doesn't allow duplicate elements (each element is unique).
+
+22] What is the difference between list and set
 

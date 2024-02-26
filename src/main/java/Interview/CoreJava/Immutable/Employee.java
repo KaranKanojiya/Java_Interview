@@ -1,9 +1,6 @@
 package Interview.CoreJava.Immutable;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public  final class Employee {
@@ -11,11 +8,13 @@ public  final class Employee {
     private final String name;
     private final Date doj;
     private final List<String> mobile;
+    private final Address address;
 
-    public Employee(String name, Date doj, List<String> mobile) {
+    public Employee(String name, Date doj, List<String> mobile, Address address) {
         this.name = name;
         this.doj = doj;
         this.mobile = mobile;
+        this.address = address;
     }
 
     public String getName() {
@@ -27,7 +26,12 @@ public  final class Employee {
     }
 
     public List<String> getMobile() {
-        return Collections.unmodifiableList(mobile);
+        return new ArrayList<>(mobile);
+    }
+
+    public Address getAddress() {
+        System.out.println(address.getName());
+        return new Address(address.getName(), address.getPinCode());
     }
 
     @Override
@@ -36,14 +40,18 @@ public  final class Employee {
                 "name='" + name + '\'' +
                 ", doj=" + doj +
                 ", mobile=" + mobile +
+                ", address=" + address +
                 '}';
     }
 
     public static void main(String[] args) {
 
-        Employee employee=new Employee("karan",new Date(),Arrays.stream(new String[]{"8212345678"}).collect(Collectors.toList()));
+        Employee employee=new Employee("karan",new Date(),
+                Arrays.stream(new String[]{"8212345678"}).collect(Collectors.toList()),
+                new Address("Bangalore",40067));
         employee.getDoj().setDate(10);
         employee.getMobile().add("100");
+        employee.getAddress().setName("Pune");
 
         System.out.println(employee);
 
