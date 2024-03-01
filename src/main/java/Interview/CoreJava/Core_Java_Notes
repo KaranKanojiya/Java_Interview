@@ -195,5 +195,145 @@ Interview/CoreJava/Exception/OrderNotFoundException.java
     List: Allows duplicate elements (can have the same element multiple times).
     Set: Doesn't allow duplicate elements (each element is unique).
 
-22] What is the difference between list and set
+22] What is the difference between ArrayList and LinkedList ?
+
+    ArrayList :
+
+    - Internally uses dynamic array to store the elements
+    - Manipulation is slow if middle element is deleted due to bits shift in memory
+    - Better for storing and accessing data
+
+    LinkedList :
+
+    - Internally uses a doubly Linked List to store the elements
+    - Manipulation is fast
+    - Better for insert/removal operation
+
+23] Declare a list field with the final keyword
+
+     - you can add element to final list
+     - But you can't reassign to another object
+
+      e.g.
+
+      final List<Integer> list=new ArrayList<>();
+
+              list.add(1);
+              list.add(2);
+
+      list= new ArrayList<>(); // not allowed
+
+24] Write own custom arraylist to don't allow duplicates ?
+
+     e.g. : Interview.CoreJava.oop.CustomArrayList
+
+
+25] Why Set doesn't allow duplicate Element ?
+
+    Because set add() internally uses map.put() method where it will considered as key of a map
+
+26] Diff between Comparable and Comparator:
+
+     blog : https://www.javatpoint.com/difference-between-comparable-and-comparator
+
+     Code : Interview/CoreJava/SortObject/Student.java
+
+27] What is the differenc between fail fast and fail safe scenario ?
+
+    blog : https://www.geeksforgeeks.org/fail-fast-fail-safe-iterators-java
+
+    ⚙ Fail-Fast iterators immediately throw ConcurrentModificationException
+
+       - To know whether the collection is structurally modified or not, fail-fast iterators
+         use an internal flag called modCount which is updated each time a collection is modified.
+       - Ex: HashMap, List.
+
+    ⚙ Fail-safe iterators allow modifications of a collection while iterating over it.
+
+       -They use copy of original collection to traverse over the elements of the collection.
+       -These iterators require extra memory for cloning of collection. Ex : ConcurrentHashMap, CopyOnWriteArrayList
+
+28] Difference  HashMap and Hashtable:
+
+    blog : https://www.javatpoint.com/difference-between-hashmap-and-hashtable
+
+    HashMap :
+     - Not Synchronized
+     - Allow multiple key and values
+     - Not thread safe
+     - Faster
+     - fail-fast
+
+
+    HashTable :
+
+    - Synchronized
+    - Thread Safe
+    - Slow
+    - fail-safe
+
+
+29] Difference Hashtable and ConcurrentHashMap:
+
+  - Hashtable locks the entire table during a write operation,
+    thereby preventing other reads or writes. This could be a bottleneck in a high-concurrency environment.
+
+  - ConcurrentHashMap, however, allows concurrent reads and limited concurrent writes,
+    making it more scalable and often faster in practice.
+
+30] How Hashmap internally works ?
+
+    - HashMap<K,V> map = new HashMap<>();                  // Default size 16
+    - Each Bucket internally uses a LinkedList and has Node with below structure:
+
+
+      K key
+      V value
+      int hash
+      Node next
+
+    -  index 0 stores "NULL" key
+
+    ⚙ Workflow :
+
+      Step 1 : map.put(K,V);
+
+      Step 2: find hashCode() of the key
+
+      Step 3: find bucketIndex using hashCode
+
+       put(K k, V v ){
+            hash(k)
+            index=hash & (n-1)
+       }
+
+      Step 4: HashCollision:
+
+              Yes : Goto Step 6
+
+              NO  : Goto Step 5
+
+      Step 5: Simply add to LinkedList as first Node
+
+
+      Step 6: Key Already Present and equals to existing key
+
+              Yes: Goto Step 7
+
+              NO : Goto Step 8
+
+      Step 7: Add to LinkedList by replacing existing equal node
+
+      Step 8 : Add to LinkedList as next Node
+
+    Notes: Java 8 improvement:
+
+           - Buckets containing a large number of colliding keys will store their entries in a balanced tree
+             instead of a linked list after certain threshold is reached.
+
+
+
+
+
+
 
