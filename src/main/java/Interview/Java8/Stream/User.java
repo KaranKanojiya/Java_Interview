@@ -14,6 +14,10 @@ public class User {
         this.email = email;
     }
 
+    public User() {
+
+    }
+
     public String getName() {
         return name;
     }
@@ -36,5 +40,14 @@ public class User {
 
     public void setEmail(List<String> email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email=" + email +
+                '}';
     }
 }

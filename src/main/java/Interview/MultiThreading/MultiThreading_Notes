@@ -1,0 +1,87 @@
+📌_________________________ MultiThreading _________________________📌
+
+📌 Resources :
+
+   - Ref doc : Interview/MultiThreading/Defog_Tutorial_Doc.docx
+
+
+
+1] What is Volatile , How it resolves visibilty problem?
+
+ ⚙ CPU cache structure :
+
+    - Cpu with two core
+    - each core has local cache & one common shared cache
+    - Visibility Problem :
+        - If one thread modify the flag value it will  refelects only in local cache
+        - when you used volatile keyword it flush  the local cache changes to shared cache and refresh the other
+          core cache flag value where other threads are running
+    - EX : volatile boolean flag=false;
+
+
+2] Synchronization Problem:
+
+  - Two thread reading value at the same time & output is not as expected ( Example: value++)
+  - Solution 1 :  With synchronized block
+
+        synchronized(obj){
+        value++;
+        }
+
+  - Solution 2 : With AtomicInteger
+
+          AtomicInteger value =new AtomicInteger(1);
+
+          value.increment();
+     - method :  incrementAndGet | decrementAndGet | addAndGet(int delta) | compareAndSet( int expectVal,int newVal)
+
+
+3] What are ThreadLocal ?
+
+   - Per Thread instance for memory efficiency and thread-safety
+   - Example: : Interview/MultiThreading/ThreadLocal/UserContextHolder.java
+
+   - Usage Tips :
+     - Cleanup once out of scope
+     - Use local variable
+     - Delegate to frameworks : example : Spring : RequestContextHolder
+
+4] Difference between Concurrency vs Parallelism
+
+   - blog : https://www.baeldung.com/cs/concurrency-vs-parallelism
+
+   ⚙ Scheduler : Responsible for scheduling the thread on to the cpu Core
+
+
+   ⚙ Parallelism : Is about doing lot of things at once
+
+        -Tools to enable Parallelism:
+
+           - Threads
+           - ThreadPool
+               - ExcecutorService
+               - ForkJoinPool
+               - Custom ThreadPools (eg:  Web Servers)
+
+           - Requires  > 1 CPU cores
+
+   ⚙ Concurrency : Is about dealing lot of things at once
+
+      - shared resource is to be accessed/updated
+      - multiple tasks need to be coordinated
+
+      -Tools to enable Parallelism:
+
+         - Locks/Synchronized
+         - Atomic Classes
+         - Concurrent DataStructure ( eg: ConcurrentHashMap, BlockingQueue)
+         - CompletableFuture
+         - CountdownLatch / Phaser / CyclicBarrier / Semaphore etc.
+
+5] Different way to create a thread in Java
+
+   - Ref doc: https://stackoverflow.com/questions/3489543/how-to-call-a-method-with-a-separate-thread-in-java
+   - Example : Interview/MultiThreading/Thread_Creation.java
+
+
+
