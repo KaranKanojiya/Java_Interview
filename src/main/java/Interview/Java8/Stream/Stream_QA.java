@@ -43,7 +43,7 @@ public class Stream_QA {
 
         // WAP using stream to find frequence of each  character in a given string
 
-        String input = "'karan";
+        String input = "karan";
 
         Map<Character, Long> freq = input.chars().mapToObj(ch -> (char) ch).filter(Character::isLetter)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
@@ -51,6 +51,28 @@ public class Stream_QA {
         Map<Character, Long> frequencyMap = input.chars().mapToObj(ch -> (char) ch).filter(Character::isLetter)
                 .collect(Collectors.groupingBy(ch -> ch, Collectors.counting()));
 
+
+        HashSet<Character> set=new HashSet<>();
+
+        char findFirstRepeatingChar=input.chars().mapToObj(ch->(char)ch)
+                .filter(c->!set.add(c)).findFirst().orElse('\0');
+
+        System.out.println("findFirstRepeatingChar "+findFirstRepeatingChar);
+
+
+        Map<Character, Integer> charCountMap = new LinkedHashMap<>();
+
+        // Count occurrences of each character in the string
+        input.chars().forEach(ch -> charCountMap.put((char) ch, charCountMap.getOrDefault((char) ch, 0) + 1));
+
+        // Find the first character with count 1
+        char findFirstUniqueChar = charCountMap.entrySet().stream()
+                .filter(entry -> entry.getValue() == 1)
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse('\0');
+
+        System.out.println("findFirstUniqueChar "+findFirstUniqueChar);
 
         freq.forEach((k, v) -> System.out.println(k + "->" + v));
 

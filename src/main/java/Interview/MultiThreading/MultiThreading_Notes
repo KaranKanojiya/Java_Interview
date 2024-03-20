@@ -83,5 +83,102 @@
    - Ref doc: https://stackoverflow.com/questions/3489543/how-to-call-a-method-with-a-separate-thread-in-java
    - Example : Interview/MultiThreading/Thread_Creation.java
 
+6] Excecutor Service :   Interview/MultiThreading/ExecutorService/Task.java
+
+    Creates a thread pool
+    Task are stored in  blocking Queue to keep thread safe
+    All thread will perform the task which are stored in queue
+      - Fetch next task from queue
+      - Execute it
+
+
+    ⚙ What is the difference between I/O bound vs CPU intensive?
+
+    I/O bound means that a given task often waits for I/O. For example networking, file-io, and so on,
+    are slow, compared to the CPU. When the CPU has to regularily wait for data to arrive, the task is
+    said to be I/O bound.
+
+    CPU intensive is the opposite, when the CPU has to do a lot of work, computes data, without ever
+    waiting for new data to arrive. It can just keep going.
+
+
+    - What should be the Ideal Pool size:
+
+      - One java thread is equal to one OS thread
+      - CPU intensive operation ( create hash or cryptographic function)
+      - Pool size should be equal to the number of CPU core or else it will do time split scheduling
+
+
+      Example :
+
+      Runtime.getRuntime().availableProcessors()
+
+
+
+
+       ⚙ CPU Intensive Operation:
+
+        - CPU intensive operation ( create hash or cryptographic function)
+        - Pool size should be equal to the number of CPU core or else it will do time split scheduling
+
+
+       ⚙ I/O Intensive Operation:
+
+        - I/O intensive operation ( Database Call | Http URL | )
+        - Here Thread will wait for OS to get a response and all those threads will go into waiting state
+        - So here you can size  of thread pool as a large one  to pull task from a queue
+        - Note : Too many threads will increase memory consumption too
+
+7] There are various thread pools in java: Interview/MultiThreading/ExecutorService/TypesOfPool.java:10
+
+
+⚙ Fixed Thread Pool:
+
+Fixed Thread Pool : A thread pool with a fixed number of threads.
+If a thread is not available for the task, the task is put in queue waiting for an other task to ends.
+Method : Executors.newFixedThreadPool()
+
+
+⚙ Cached Thread Pool:
+
+Cached Thread Pool : A thread pool that creates as many threads it needs to execute the task in parrallel.
+The old available threads will be reused for the new tasks. If a thread is not used during 60 seconds, it will be terminated and removed from the pool. Method : Executors.newCachedThreadPool()
+
+- There is no blocking queue only one Synchronous queue is present
+- If a thread is not used during 60 seconds, it will be terminated
+
+
+⚙ Scheduled Thread Pool :
+
+https://mkyong.com/java/java-scheduledexecutorservice-examples/
+
+Scheduled Thread Pool : A thread pool made to schedule future task. Method : Executors.newScheduledThreadPool()
+
+
+
+⚙ Single Thread Executor:
+
+Single Thread Executor : A thread pool with only one thread. So all the submitted tasks will be executed sequentially. Method : Executors.newSingleThreadExecutor()
+
+- This type of thread is used when you want to make sure task1  is run before task2  and have only 1 thread
+
+
+⚙ Single Thread Scheduled Pool :
+
+Single Thread Scheduled Pool : A thread pool with only one thread to schedule future task.
+Method : Executors.newSingleThreadScheduledExecutor()
+
+
+
+📌 Thread Pool lifeCycle : Interview/MultiThreading/ExecutorService/ThreadPoolLifeCycle.java:8
+
+8] Callable/Feature : Interview/MultiThreading/Callable/Task.java:8
+
+  Callable : will return some value
+  submit() : Used by executor service
+
+  Future Interface : It is a placeholder for the value which will arrive sometime in the future
+
+  - Timeout Feature:        Integer result=future.get(1,TimeUnit.SECONDS);
 
 
