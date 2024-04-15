@@ -3,6 +3,7 @@
 📌 Resources :
 
    - Ref doc : Interview/MultiThreading/Defog_Tutorial_Doc.docx
+   - https://www.baeldung.com/java-concurrent-locks
 
 
 
@@ -181,4 +182,83 @@ Method : Executors.newSingleThreadScheduledExecutor()
 
   - Timeout Feature:        Integer result=future.get(1,TimeUnit.SECONDS);
 
+9] Java Asynchronous Programming
 
+
+   📌 Future:
+   Future represents the result of an asynchronous computation.
+   It provides a way to retrieve the result of the computation once it's available.
+   The get() method is used to retrieve the result, which blocks until the computation is complete.
+   Synchronous programming with Future typically involves blocking calls, where the main thread waits for the result of the computation.
+   Asynchronous Programming with CompletableFuture:
+   CompletableFuture:
+
+   📌 CompletableFuture is an extension of Future that provides more flexibility and functionality for asynchronous programming.
+   It allows you to chain multiple asynchronous operations together in a fluent and non-blocking manner.
+   You can create CompletableFuture instances manually or use factory methods to compose them.
+   It provides methods like thenApply(), thenAccept(), and thenCompose() for composing actions to be executed asynchronously.
+   CompletableFuture supports error handling through methods like exceptionally() and handle().
+
+   📌Spring Webflux:
+
+     It is a reactive, non-blocking web framework for building modern, scalable web application in Java
+
+9] CompltableFuture:
+
+   A CompltableFuture is used for asynchronous programming. Asynchronous programming means writing non-blocking code.
+   It runs a task on a separate thread than the main application thread and notifies the main thread about its progress,
+   completion or failure.
+
+
+   The difference has to do with the Executor that is responsible for running the code.
+   Each operator on CompletableFuture generally has 3 versions.
+
+   thenApply(fn) - runs fn on a thread defined by the CompleteableFuture on which it is called,
+   so you generally cannot know where this will be executed. It might immediately execute if the result is already available.
+
+   thenApplyAsync(fn) - runs fn on a environment-defined executor regardless of circumstances.
+   For CompletableFuture this will generally be ForkJoinPool.commonPool().
+
+   thenApplyAsync(fn,exec) - runs fn on exec.
+   In the end the result is the same, but the scheduling behavior depends on the choice of method.
+
+
+    ⚙ Another alternative for CompletableFuture is RXJAVA most commonly used:
+
+    https://www.baeldung.com/rx-java
+
+10] Java ReentrantLock - fairness, tryLock and more:
+
+    https://www.baeldung.com/java-concurrent-locks
+
+    1] lock.getHoldCount();   // Get lock count:
+
+        2] Fairness : After a  thread release the lock, now longest waiting Thread will get a lock
+
+           - byDefault locks will be unfair
+           - lock=new ReentrantLock(true) for fair
+
+        3] Fair lock
+
+           Advantages:     Equal chance for all threads
+           DisAdvantages:  Slower
+
+        4] UnFair lock
+
+           Advantages:    Faster ( More Throughput)
+           DisAdvantages:  Possible Thread Starvation
+
+        5] tryLock()
+
+           Check if lock is available, don't block
+
+           - Doesn't honor fairness
+           - Workaround is to use tryLock timeout with 0 seconds
+           - boolean tryLock() – This is a nonblocking version of lock() method.
+             It attempts to acquire the lock immediately, return true if locking succeeds.
+
+        6] Timeout tryLock(time)
+
+           - lockAcquired = lock.tryLock(5,Seconds);
+           - boolean tryLock(long timeout, TimeUnit timeUnit) – This is similar to tryLock(),
+             except it waits up the given timeout before giving up trying to acquire the Lock.
