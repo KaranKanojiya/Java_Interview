@@ -2,16 +2,16 @@
 
 **Complete Java interview preparation repository — organized by experience level, from fundamentals to JVM internals.**
 
-> **140 Java files** | **7 progressive levels** | **Java 8 through Java 25/26** | **130+ interview questions with code**
+> **149 Java files** | **7 progressive levels** | **Java 8 through Java 25/26** | **130+ interview questions with code**
 
 ```
-Level 1  [==========]  Core Java           Mid-Level       30 questions
-Level 2  [========  ]  Java 8 Features     Mid/Senior      20 questions
-Level 3  [========  ]  Multithreading      Senior          25 questions
-Level 4  [======    ]  Java 9-17           Senior/Staff    15 questions
-Level 5  [======    ]  Java 17-21          Staff           15 questions
-Level 6  [====      ]  JVM Internals       Staff/Principal 15 questions
-Level 7  [==        ]  Java 25/26          Principal       10 questions
+Level 1  [==========]  Core Java           Mid-Level       30 questions   39 files
+Level 2  [==========]  Java 8 Features     Mid/Senior      20 questions   25 files
+Level 3  [==========]  Multithreading      Senior          25 questions   31 files
+Level 4  [==========]  Java 9-17           Senior/Staff    15 questions   16 files
+Level 5  [==========]  Java 17-21          Staff           15 questions   15 files
+Level 6  [==========]  JVM Internals       Staff/Principal 15 questions   15 files
+Level 7  [==========]  Java 25/26          Principal       10 questions    9 files
 ```
 
 ---
@@ -46,7 +46,7 @@ Level 7  [==        ]  Java 25/26          Principal       10 questions
 git clone <repo-url>
 cd Java_Interview
 
-# Compile all 140 files
+# Compile all 149 files
 mvn compile
 
 # Run any demo (example)
@@ -2683,4 +2683,4 @@ This repository is for educational purposes -- personal interview preparation.
 
 ---
 
-> **140 files. 130+ questions. 7 levels. Java 8 to Java 26. Good luck.**
+> **149 files. 130+ questions. 7 levels. Java 8 to Java 26. Good luck.**
